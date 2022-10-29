@@ -112,7 +112,7 @@ body{
 .search_chat div ion-icon{
     position: absolute;
     left: 30px;
-    top: 14px;
+    top: 20px;
     font-size: 1.2em;
 }
 .chatlist{
@@ -265,6 +265,7 @@ body{
     height: 20px;
     background: linear-gradient(225deg, #fff 0%, #fff 50%, transparent 50%, transparent);
 }
+
 .chatbox_input{
     position: relative;
     width: 100%;
@@ -291,4 +292,23 @@ body{
     outline: none;
     border-radius: 30px;
     font-size: 1em;
+}
+#myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+  
+#myUL li a {
+    margin-top: -1px; /* Prevent double borders */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove default text underline */
+    font-size: 18px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
+}
+  
+#myUL li a:hover:not(.header) {
+    background-color: #eee; /* Add a hover effect to all links, except for headers */
 }

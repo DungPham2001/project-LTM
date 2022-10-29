@@ -6,6 +6,11 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -15,25 +20,142 @@
                         <img src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=604" class="cover" >
                     </div>
                     <ul class="nav_icons">
-                        <li><ion-icon name="scan-circle-outline"></ion-icon></li>
+                        <li><ion-icon name="add-circle-outline" data-bs-toggle="modal" data-bs-target="#newConversation"></ion-icon></li>
                         <li><ion-icon name="chatbox"></ion-icon></li>
-                        <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
+                        <li class="dropdown">
+                            <ion-icon name="ellipsis-vertical" data-bs-toggle="dropdown"></ion-icon>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#listFriend">Danh sách bạn bè</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
+                    <div class="modal" id="listFriend">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Danh sách bạn bè</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                        
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">
+                                        <h4 class="ms-4">Pham Van A</h4>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">
+                                        <h4 class="ms-4">Pham Van A</h4>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">
+                                        <h4 class="ms-4">Pham Van A</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal" id="newConversation">
+                        <div class="modal-dialog modal-lg-down modal-dialog-scrollable">
+                            <div class="modal-content">
+                            <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Tạo cuộc trò chuyện mới</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="d-flex mb-1" style="margin-top:13px">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                        <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                                        <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                                    </svg>
+                                    <h4 class="ms-3" data-bs-toggle="modal" data-bs-target="#newGroup" style="cursor: pointer;">Tạo nhóm mới</h4>
+                                </div>
+                                <hr>
+                                <div class="search_chat">
+                                    <div>
+                                        <input type="text" placeholder="Tìm kiếm bạn bè" name="friend" id="myInput" onkeyup="myFunction()" />
+                                    </div>
+                                </div>
+                                <h4 class="mb-3 mt-5">Gợi ý:</h4>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                        <ul id="myUL">
+                                            <li class="block" onclick="openMessage(event, 'number1')" data-bs-dismiss="modal"><a href="#"><img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle" >Pham Van A</a>
+                                            </li>
+                                            <li class="block" onclick="openMessage(event, 'number2')" data-bs-dismiss="modal"><a href="#"><img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">Pham Van B</a>
+                                            </li>
+                                            <li><a href="#"><img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">Pham Van C</a>
+                                            </li>
+                                            <li><a href="#"><img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">DDDDd</a>
+                                            </li>
+                                            <li><a href="#"><img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">vvvvvvv</a>
+                                            </li>
+                                            <li><a href="#"><img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">nnnnnnnnnn</a>
+                                            </li>
+                                            <li><a href="#"><img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">mmmmmmmm</a>
+                                            </li>
+                                            <li><a href="#"><img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">lllllllll</a>
+                                            </li>
+                                            <li><a href="#"><img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">ppppppppp</a>
+                                            </li>
+                                            <li><a href="#"><img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" width="50px" height="45px" class="rounded-circle">ppppppppp</a>
+                                            </li>
+                                        </ul>
+                                    <!-- </div> -->
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal" id="newGroup">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                      
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">Tạo nhóm mới</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                      
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form>
+                                    <select class="form-control" multiple>
+                                        <option value="admin">Admin</option>
+                                        <option value="admin">Admin</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                                </form>
+                            </div>
+                      
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </div>
+                      
+                          </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="search_chat">
                     <div>
-                        <input type="text" placeholder="Search or start new chart" />
+                        <input type="text" placeholder="Tìm kiếm cuộc trò chuyện" />
                         <ion-icon name="search-outline"></ion-icon>
                     </div>
                 </div>
                 <div class="chatlist">
-                    <div class="block">
+                    <div class="block" onclick="openMessage(event, 'number1')" id="defaultOpen">
                         <div class="imgbx">
                             <img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" class="cover">
                         </div>
                         <div class="details">
                             <div class="listHead">
-                                <h4>Pham</h4>
+                                <h4>Pham Van A</h4>
                                 <p class="time">10:56</p>
                             </div>
                             <div class="message_p">
@@ -41,13 +163,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="block unread">
+                    <div class="block unread" onclick="openMessage(event, 'number2')">
                         <div class="imgbx">
                             <img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" class="cover">
                         </div>
                         <div class="details">
                             <div class="listHead">
-                                <h4>Pham</h4>
+                                <h4>Pham Van B</h4>
                                 <p class="time">10:56</p>
                             </div>
                             <div class="message_p">
@@ -63,7 +185,7 @@
                         <div class="details">
                             <div class="listHead">
                                 <h4>Olivia</h4>
-                                <p class="time">Yesterday</p>
+                                <p class="time">Hôm qua</p>
                             </div>
                             <div class="message_p">
                                 <p>How to make Whatapp clone using html and css</p>
@@ -78,7 +200,7 @@
                         <div class="details">
                             <div class="listHead">
                                 <h4>Pham</h4>
-                                <p class="time">Yesterday</p>
+                                <p class="time">Hôm qua</p>
                             </div>
                             <div class="message_p">
                                 <p>How to make Whatapp clone using html and css</p>
@@ -93,7 +215,7 @@
                         <div class="details">
                             <div class="listHead">
                                 <h4>Pham</h4>
-                                <p class="time">Yesterday</p>
+                                <p class="time">Hôm qua</p>
                             </div>
                             <div class="message_p">
                                 <p>How to make Whatapp clone using html and css</p>
@@ -163,13 +285,13 @@
                     </div>
                 </div>
             </div>
-            <div class="rightSide">
+            <div class="rightSide tabcontent" id="number1">
                 <div class="header">
                     <div class="imgText">
                         <div class="userimg">
                             <img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" class="cover">
                         </div>
-                        <h4>Pham<br><span>online</span></h4>
+                        <h4>Pham Van A<br><span>online</span></h4>
                     </div>
                     <ul class="nav_icons">
                         <li><ion-icon name="search-outline"></ion-icon></li>
@@ -183,15 +305,98 @@
                     <div class="message frnd_message">
                         <p>Hello<br><span>12:15</span></p>
                     </div>
+                    <div class="message my_message">
+                      <p>Hi<br><span>12:15</span></p>
+                    </div>
+                    <div class="message frnd_message">
+                        <p>Hello<br><span>12:15</span></p>
+                    </div>
+                    <div class="message my_message">
+                      <p>Hi<br><span>12:15</span></p>
+                    </div>
+                    <div class="message frnd_message">
+                        <p>Hello<br><span>12:15</span></p>
+                    </div>
+                    <div class="message my_message">
+                      <p>Hi<br><span>12:15</span></p>
+                    </div>
+                    <div class="message frnd_message">
+                        <p>Hello<br><span>12:15</span></p>
+                    </div>
                 </div>
                 <div class="chatbox_input">
                     <ion-icon name="happy-outline"></ion-icon>
                     <ion-icon name="attach-outline"></ion-icon>
-                    <ion-icon name="mic"></ion-icon>
+                    <ion-icon name="image-outline"></ion-icon>
                     <input type="text" placeholder="Type a message">
+                    <ion-icon name="send-outline"></ion-icon>
+                </div>
+          </div>
+          <div class="rightSide tabcontent" id="number2">
+            <div class="header">
+                <div class="imgText">
+                    <div class="userimg">
+                        <img src="https://res.edu.vn/wp-content/uploads/2022/01/unit-6-famous-person.jpg" class="cover">
+                    </div>
+                    <h4>Pham Van B<br><span>online</span></h4>
+                </div>
+                <ul class="nav_icons">
+                    <li><ion-icon name="search-outline"></ion-icon></li>
+                    <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
+                </ul>
+            </div>
+            <div class="chatBox">
+                <div class="message my_message">
+                    <p>Hi<br><span>12:15</span></p>
+                </div>
+                <div class="message frnd_message">
+                    <p>Hello<br><span>12:15</span></p>
                 </div>
             </div>
-
+            <div class="chatbox_input">
+                <ion-icon name="happy-outline"></ion-icon>
+                <ion-icon name="attach-outline"></ion-icon>
+                <ion-icon name="image-outline"></ion-icon>
+                <input type="text" placeholder="Type a message">
+                <ion-icon name="send-outline"></ion-icon>
+            </div>
         </div>
     </body>
+    <script>
+        function openMessage(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("block");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+        function myFunction() {
+            // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('myInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+                } else {
+                li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </html>
